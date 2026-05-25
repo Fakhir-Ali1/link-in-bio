@@ -71,6 +71,7 @@ const TypewriterText = ({ text, speed = 80, delay = 2000 }) => {
 const initialConfig = {
   profile: {
     mypic: mypic,
+    
     image: myProfilePic,
     name: 'WVM Agency',
     bio: 'World Voice Marketing Smart Growth Start Here ✨',
