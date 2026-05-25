@@ -1,0 +1,492 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* =====================
+   RESET & BASE
+===================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #000;
+  color: #fff;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =====================
+   SCROLLBAR
+===================== */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: rgb(99, 248, 107); }
+::-webkit-scrollbar-thumb { background: rgb(27, 90, 22); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgb(141, 31, 31); }
+
+/* =====================
+   PAGE ROOT
+===================== */
+.page-root {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* =====================
+   BACKGROUND LAYERS
+===================== */
+.bg-layer {
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.28);
+  z-index: 0;
+}
+
+.bg-gradient-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(3, 26, 0, 0.479) 0%,
+    rgba(105, 21, 21, 0.35) 50%,
+    rgba(3, 56, 7, 0.534) 100%
+  );
+  z-index: 1;
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  opacity: 0.018;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  z-index: 2;
+}
+
+/* =====================
+   CONTENT WRAPPER
+===================== */
+.content-wrapper {
+  position: relative;
+  z-index: 10;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 6rem;
+}
+
+/* =====================
+   ANIMATIONS
+===================== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spinPop {
+  from { transform: scale(0.6) rotate(-30deg); opacity: 0; }
+  to   { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+@keyframes shimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+.anim-fade-in {
+  animation: fadeIn 0.6s ease-out both;
+}
+
+.anim-slide-up {
+  animation: slideUp 0.55s ease-out both;
+}
+
+/* =====================
+   UTILITY
+===================== */
+.hidden-input { display: none; }
+.flex-1 { flex: 1; }
+.text-muted { color: rgba(255,255,255,0.4); }
+
+.icon-sm { width: 1.1rem; height: 1.1rem; flex-shrink: 0; }
+.icon-md { width: 1.4rem; height: 1.4rem; flex-shrink: 0; }
+
+
+/* =====================
+   EDIT TOGGLE ROW
+===================== */
+.edit-toggle-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+/* =====================
+   PROFILE SECTION
+===================== */
+.profile-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Avatar */
+.avatar-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.4rem;
+}
+
+.avatar-ring {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(255,255,255,0.22);
+  box-shadow: 0 8px 40px rgb(88, 25, 9), 0 2px 8px rgba(0,0,0,0.5);
+  transition: transform 0.4s, border-color 0.4s;
+}
+.avatar-ring:hover {
+  transform: scale(1.06);
+  border-color: rgb(119, 27, 27);
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+
+/* Profile name */
+.profile-name {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(135deg, #b45353 30%, #83fc50 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+.name-input:focus {
+  box-shadow: 0 0 0 3px rgba(168,85,247,0.3);
+}
+
+/* Bio */
+.profile-bio {
+  font-size: 1rem;
+  color: rgba(66, 255, 49, 0.7);
+  max-width: 26rem;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+
+.bio-input:focus {
+  box-shadow: 0 0 0 3px rgba(168,85,247,0.3);
+}
+
+/* BG upload row */
+.bg-upload-row {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* =====================
+   LINKS SECTION
+===================== */
+.links-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.link-item-wrapper {
+  position: relative;
+  padding-left: 0;
+  transition: padding-left 0.3s;
+}
+.link-item-wrapper.disabled-link { opacity: 0.45; }
+
+/* drag handle */
+.drag-handle {
+  position: absolute;
+  left: -2.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: grab;
+  padding: 0.25rem;
+}
+.drag-handle:active { cursor: grabbing; }
+
+/* ---- Link card ---- */
+.link-card {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  padding: 1.1rem 1.75rem;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+.link-card:hover {
+  transform: scale(1.025);
+}
+
+.link-card-primary {
+  background: linear-gradient(135deg, rgba(102, 0, 0, 0.493) 0%, rgba(153,51,51,0.9) 50%, rgba(80, 18, 18, 0.466) 100%);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(102, 0, 0, 0.35);
+}
+.link-card-primary:hover {
+  box-shadow: 0 8px 40px rgba(102, 0, 0, 0.55);
+}
+
+.link-card-secondary {
+  background: rgba(102, 0, 0, 0.18);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.link-card-secondary:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(153, 51, 51, 0.6);
+  box-shadow: 0 6px 28px rgba(102, 0, 0, 0.18);
+}
+
+.link-card-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+.link-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.link-icon-box {
+  padding: 0.5rem;
+  border-radius: 0.65rem;
+  background: rgba(255,255,255,0.15);
+  color: #660000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+}
+.link-card:hover .link-icon-box {
+  transform: scale(1.12) rotate(6deg);
+}
+
+.link-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.link-chevron {
+  width: 1.1rem;
+  height: 1.1rem;
+  transform: rotate(-90deg);
+  opacity: 0.75;
+  transition: transform 0.3s;
+}
+.link-card:hover .link-chevron {
+  transform: rotate(-90deg) translateY(-3px);
+}
+
+/* Shine sweep */
+.shine-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+  transform: translateX(-100%);
+  transition: transform 0s;
+  pointer-events: none;
+}
+.link-card:hover .shine-overlay {
+  animation: shimmer 0.9s ease forwards;
+}
+
+
+/* =====================
+   SOCIALS ROW
+===================== */
+.socials-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.social-btn {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background: rgba(196, 139, 139, 0.281);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgb(90, 21, 21);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #113d00;
+  text-decoration: none;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s;
+}
+.social-btn:hover {
+  transform: scale(1.12) rotate(10deg);
+}
+
+.social-instagram:hover {
+  background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+  border-color: transparent;
+}
+.social-linkedin:hover {
+  background: #0077b5;
+  border-color: transparent;
+}
+.social-facebook:hover {
+  background: #1877f2;
+  border-color: transparent;
+}
+.social-gmail:hover {
+  background: #ea4335;
+  border-color: transparent;
+}
+.social-whatsapp:hover {
+  background: #25d366;
+  border-color: transparent;
+}
+
+/* =====================
+   SHARE BUTTON
+===================== */
+.share-row {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.5rem;
+  background: rgba(255, 255, 255, 0.267);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(15, 56, 7, 0.18);
+  border-radius: 9999px;
+  color: #3d0909;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.2s;
+}
+.share-btn:hover {
+  background: rgba(255,255,255,0.16);
+  transform: scale(1.05);
+}
+.share-icon {
+  transition: transform 0.3s;
+}
+.share-btn:hover .share-icon {
+  transform: rotate(14deg);
+}
+
+/* =====================
+   FOOTER
+===================== */
+.footer {
+  text-align: center;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-text {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.35);
+}
+
+.footer-brand {
+  color: #a855f7;
+  font-weight: 600;
+}
+
+/* =====================
+   FLOATING AVATAR CTA
+===================== */
+.floating-avatar-cta {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  animation: floatUpDown 3s ease-in-out infinite;
+}
+
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.floating-avatar-bubble {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 0.5rem 1rem;
+  border-radius: 1.2rem;
+  border-top-right-radius: 0.2rem;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.floating-avatar-pic {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(37,211,102,0.8);
+  object-fit: cover;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.floating-avatar-cta:hover .floating-avatar-pic {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 20px rgba(37,211,102,0.6);
+}
+
+/* =====================
+   INPUT GLOW
+===================== */
+input:focus, textarea:focus, select:focus {
+  box-shadow: 0 0 0 3px rgba(168,85,247,0.25);
+}
