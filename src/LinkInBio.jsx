@@ -70,8 +70,7 @@ const TypewriterText = ({ text, speed = 80, delay = 2000 }) => {
 // Initial configuration
 const initialConfig = {
   profile: {
-    mypic: mypic,
-    
+    mypic: mypic, 
     image: myProfilePic,
     name: 'WVM Agency',
     bio: 'World Voice Marketing Smart Growth Start Here ✨',
@@ -166,12 +165,7 @@ const LinkInBio = () => {
   return (
     <div className="page-root">
       {/* Background with overlay */}
-      <div
-        className="bg-layer"
-        style={{
-          backgroundImage: `url(${config.profile.backgroundImage})`
-        }}
-      />
+      <div className="bg-layer" />
       <div className="bg-gradient-overlay" />
       <div className="noise-overlay" />
 
