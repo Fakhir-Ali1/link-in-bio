@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { MessageCircle, Calendar, Share2, ChevronDown, Mail, Globe, Briefcase } from 'lucide-react';
 import myProfilePic from './assets/profile.png';
 import mypic from './assets/mypic.jpg';
+import bgp from './assets/bg-nebula.png';
 const Instagram = ({ className }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
