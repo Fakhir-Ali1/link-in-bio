@@ -44,32 +44,17 @@ body {
 .bg-layer {
   position: fixed;
   inset: 0;
-  background: linear-gradient(135deg, #0d3d00 0%, #1b5800 25%, #2d1a1a 50%, #660000 75%, #8B0000 100%);
+  background-image: url('https://images.unsplash.com/photo-1557672172-298e090d0f80?w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   z-index: 0;
-  animation: gradientShift 15s ease infinite;
-  background-size: 400% 400%;
-}
-
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
 }
 
 .bg-gradient-overlay {
   position: fixed;
   inset: 0;
   z-index: 1;
-  background: radial-gradient(circle at 20% 50%, rgba(27, 88, 0, 0.4) 0%, transparent 50%),
-              radial-gradient(circle at 80% 80%, rgba(102, 0, 0, 0.4) 0%, transparent 50%),
-              radial-gradient(circle at 40% 20%, rgba(139, 0, 0, 0.3) 0%, transparent 50%);
-  pointer-events: none;
 }
 
 .noise-overlay {
@@ -415,7 +400,7 @@ body {
   font-size: 0.875rem;
   font-weight: 500;
   font-family: inherit;
-  cursor: pointer;
+  cursor: button;
   transition: background 0.25s, transform 0.2s;
 }
 .share-btn:hover {
