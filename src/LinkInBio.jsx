@@ -256,21 +256,6 @@ const LinkInBio = () => {
         {/* Footer */}
       
       </div>
-
-      {/* Floating WhatsApp Avatar */}
-      {config.stickyButton.enabled && (
-        <a
-          href={config.socials.whatsapp}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="floating-avatar-cta anim-fade-in"
-        >
-          <div className="floating-avatar-bubble">
-            <TypewriterText text="Hey! Fakhir Ali here 👋" />
-          </div>
-          <img src={config.profile.mypic} alt="Fakhir Ali" className="floating-avatar-pic" />
-        </a>
-      )}
     </div>
   );
 };

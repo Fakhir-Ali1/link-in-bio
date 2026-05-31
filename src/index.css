@@ -434,52 +434,6 @@ body {
   font-weight: 600;
 }
 
-/* =====================
-   FLOATING AVATAR CTA
-===================== */
-.floating-avatar-cta {
-  position: fixed;
-  top: 1.5rem;
-  right: 1.5rem;
-  z-index: 50;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  text-decoration: none;
-  animation: floatUpDown 3s ease-in-out infinite;
-}
-
-@keyframes floatUpDown {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-.floating-avatar-bubble {
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.25);
-  padding: 0.5rem 0.5rem;
-  border-radius: 1.2rem;
-  border-top-right-radius: 0.2rem;
-  color: #116600;
-  font-size: 0.60rem;
-  font-weight: 600;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-.floating-avatar-pic {
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 50%;
-  box-shadow: 0 0 15px rgba(37,211,102,0.8);
-  object-fit: cover;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.floating-avatar-cta:hover .floating-avatar-pic {
-  transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 0 20px rgba(37,211,102,0.6);
-}
 
 /* =====================
    INPUT GLOW
