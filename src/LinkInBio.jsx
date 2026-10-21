@@ -89,7 +89,7 @@ const initialConfig = {
     {
       id: 2,
       title: 'Our Website',
-      url: 'https://wvm.fakhirlabs.tech/',
+      url: 'https://wvmagency.tech/',
       icon: 'website',
       enabled: true,
       isPrimary: true
@@ -97,7 +97,7 @@ const initialConfig = {
     {
       id: 3,
       title: 'Our Services',
-      url: 'https://wvm.fakhirlabs.tech/#services',
+      url: 'https://wvmagency.tech/#services',
       icon: 'services',
       enabled: true,
       isPrimary: false
